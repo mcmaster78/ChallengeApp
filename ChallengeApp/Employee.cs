@@ -34,7 +34,35 @@
             }
             else
             {
-                Console.WriteLine("Podane dane nie reprezentują liczby float");
+                //Console.WriteLine("Podane dane nie reprezentują liczby float");
+                switch (scores)
+                {
+                    case "A":
+                    case "a":
+                        this.AddScores(100);
+                        break;
+                    case "B":
+                    case "b":
+                        this.AddScores(80);
+                        break;
+                    case "C":
+                    case "c":
+                        this.AddScores(60);
+                        break;
+                    case "D":
+                    case "d":
+                        this.AddScores(40);
+                        break;
+                    case "E":
+                    case "e":
+                        this.AddScores(20);
+                        break;
+                    default:
+                        Console.WriteLine("Podano złą literę");
+                        break;
+
+                }
+
             }
         }
         public void AddScores(double scores)
@@ -49,12 +77,46 @@
         {
             this.AddScores((float)scores);
         }
+        public void AddScores(int scores)
+        {
+            this.AddScores((float)scores);
+        }
+        public void AddScores(char scores)
+        {
+            switch (scores)
+            {
+                case 'A':
+                case 'a':
+                    this.AddScores(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.AddScores(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.AddScores(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.AddScores(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.AddScores(20);
+                    break;
+                default:
+                    Console.WriteLine("Podano złą literę");
+                    break;
+
+            }
+        }
 
         //public int GetSumScores()
         //{
         //    return this.scores.Sum();
         //}
-        public Statistics GetStatisticsWithForEach()
+        public Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -67,59 +129,27 @@
                 statistics.Average += score;
             }
             statistics.Average = statistics.Average / this.scores.Count;
-            return statistics;
-        }
-        public Statistics GetStatisticsWithFor()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            for (var i=0; i<scores.Count; i++)
+            
+            switch (statistics.Average)
             {
-                statistics.Max = Math.Max(statistics.Max, this.scores[i]);
-                statistics.Min = Math.Min(statistics.Min, this.scores[i]);
-                statistics.Average += this.scores[i];
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
             }
-            statistics.Average = statistics.Average / this.scores.Count;
             return statistics;
         }
-        public Statistics GetStatisticsWithDoWhile()
-        {
-            var statistics = new Statistics();
-            int index = 0;
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            do
-            {
-                statistics.Max = Math.Max(statistics.Max, this.scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.scores[index]);
-                statistics.Average += this.scores[index];
-                index++;
-            } while (index < this.scores.Count);
-            statistics.Average = statistics.Average / this.scores.Count;
-            return statistics;
-        }
-        public Statistics GetStatisticsWithWhile()
-        {
-            var statistics = new Statistics();
-            int index = 0;
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            while (index < this.scores.Count)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.scores[index]);
-                statistics.Average += this.scores[index];
-                index++;
-            } 
-            statistics.Average = statistics.Average / this.scores.Count;
-            return statistics;
-        }
-
-
 
     }
 }

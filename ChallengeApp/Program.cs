@@ -1,41 +1,36 @@
 ﻿using ChallengeApp;
 
 var employee = new Employee("Marcin", "Stefański");
-float floatValue = 1.78685F;
-double doubleValue = 3.9872828355;
-decimal decimalValue = 6.676766567M;
-byte byteValue = 100;
+//float floatValue = 1.78685F;
+//double doubleValue = 3.9872828355;
+//decimal decimalValue = 6.676766567M;
+//byte byteValue = 80;
 
-employee.AddScores(floatValue);
-employee.AddScores(doubleValue);
-employee.AddScores(decimalValue);
-employee.AddScores(byteValue);
+//employee.AddScores(floatValue);
+//employee.AddScores(doubleValue);
+//employee.AddScores(decimalValue);
+//employee.AddScores(byteValue);
+//employee.AddScores('a');
 
-var statistics = employee.GetStatisticsWithForEach();
-Console.WriteLine("Wyniki dla pętli foreach:");
+Console.WriteLine("Witamy w programie XYZ do oceny pracowników");
+Console.WriteLine("===========================================");
+Console.WriteLine("");
+
+while (true)
+{
+    Console.WriteLine("Podaj ocenę pracownika:");
+    var input = Console.ReadLine();
+    if (input == "q" || input == "Q")
+    {
+        break;
+    }
+    employee.AddScores(input);
+}
+
+var statistics = employee.GetStatistics();
+
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"Min: {statistics.Min}");
 Console.WriteLine($"Max: {statistics.Max}");
+Console.WriteLine(statistics.AverageLetter);
 Console.WriteLine("");
-
-statistics = employee.GetStatisticsWithFor();
-Console.WriteLine("Wyniki dla pętli for:");
-Console.WriteLine($"Average: {statistics.Average:N2}");
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
-Console.WriteLine("");
-
-statistics = employee.GetStatisticsWithDoWhile();
-Console.WriteLine("Wyniki dla pętli do while:");
-Console.WriteLine($"Average: {statistics.Average:N2}");
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
-Console.WriteLine("");
-
-statistics = employee.GetStatisticsWithWhile();
-Console.WriteLine("Wyniki dla pętli while:");
-Console.WriteLine($"Average: {statistics.Average:N2}");
-Console.WriteLine($"Min: {statistics.Min}");
-Console.WriteLine($"Max: {statistics.Max}");
-Console.WriteLine("");
-

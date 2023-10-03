@@ -7,40 +7,102 @@ namespace CallengeApp.Tests
 
 
         [Test]
-        public void TestGetStatisticsMax()
+        public void TestGetStatisticsMaxA()
         { 
             var employee = new Employee("Miœ", "Korargol");
-            employee.AddScores(-2);
-            employee.AddScores(-1);
-            employee.AddScores(5);
-            employee.AddScores(0);
+            employee.AddScores("A");
             var result = employee.GetStatistics();
             
-            Assert.AreEqual(5, result.Max);
+            Assert.AreEqual(100, result.Max);
         }
         [Test]
-        public void TestGetStatisticsMin()
+        public void TestGetStatisticsMinA()
         {
             var employee = new Employee("Miœ", "Korargol");
-            employee.AddScores(3);
-            employee.AddScores(4);
-            employee.AddScores(-5);
-            employee.AddScores(0);
+            employee.AddScores("A");
             var result = employee.GetStatistics();
             
-            Assert.AreEqual(-5, result.Min);
+            Assert.AreEqual(100, result.Min);
         }
+        public void TestGetStatisticsMaxB()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("B");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(80, result.Max);
+        }
+        [Test]
+        public void TestGetStatisticsMinB()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("B");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(80, result.Min);
+        }
+        public void TestGetStatisticsMaxC()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("C");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(60, result.Max);
+        }
+        [Test]
+        public void TestGetStatisticsMinC()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("C");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(60, result.Min);
+        }
+        public void TestGetStatisticsMaxD()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("D");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(40, result.Max);
+        }
+        [Test]
+        public void TestGetStatisticsMinD()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("D");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(40, result.Min);
+        }
+        public void TestGetStatisticsMaxE()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("E");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(20, result.Max);
+        }
+        [Test]
+        public void TestGetStatisticsMinE()
+        {
+            var employee = new Employee("Miœ", "Korargol");
+            employee.AddScores("E");
+            var result = employee.GetStatistics();
+
+            Assert.AreEqual(20, result.Min);
+        }
+
         [Test]
         public void TestGetStatisticsAverage()
         {
             var employee = new Employee("Miœ", "Korargol");
-            employee.AddScores(3);
-            employee.AddScores(5);
-            employee.AddScores(4);
-            employee.AddScores(0);
+            employee.AddScores(50);
+            employee.AddScores(50);
+            employee.AddScores(50);
             var result = employee.GetStatistics();
             
-            Assert.AreEqual(3, result.Average);
+            Assert.AreEqual(50, result.Average);
         }
     }
 }
