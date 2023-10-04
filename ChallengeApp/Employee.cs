@@ -23,7 +23,8 @@
             }
             else
             {
-                Console.WriteLine("Podana liczba jest poza dostępnym zakresem (0-100)");
+                throw new Exception("Podana liczba jest poza dostępnym zakresem (0-100)");
+                //Console.WriteLine("Podana liczba jest poza dostępnym zakresem (0-100)");
             }
         }
         public void AddScores(string scores)
@@ -34,7 +35,7 @@
             }
             else
             {
-                //Console.WriteLine("Podane dane nie reprezentują liczby float");
+                // zastosowałem instrukcję switch tutaj gdyż po podaniu litery nie wykonuje się metoda AddScores która ma w parametrze typ char. Zamiast tego poniżej jest sprawdzanie wpisanej litery jako string. 
                 switch (scores)
                 {
                     case "A":
@@ -58,8 +59,7 @@
                         this.AddScores(20);
                         break;
                     default:
-                        Console.WriteLine("Podano złą literę");
-                        break;
+                        throw new Exception("Podano złą literę");
 
                 }
 
@@ -106,16 +106,11 @@
                     this.AddScores(20);
                     break;
                 default:
-                    Console.WriteLine("Podano złą literę");
-                    break;
+                    throw new Exception("Podano złą literę");
 
             }
         }
 
-        //public int GetSumScores()
-        //{
-        //    return this.scores.Sum();
-        //}
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
