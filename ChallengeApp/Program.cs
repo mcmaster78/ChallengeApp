@@ -1,6 +1,6 @@
 ﻿using ChallengeApp;
 
-var employee = new Employee("Marcin", "Stefański");
+var employee = new Employee("Marcin", "Stefański", 'M');
 
 Console.WriteLine("Witamy w programie XYZ do oceny pracowników");
 Console.WriteLine("===========================================");
