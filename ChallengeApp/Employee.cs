@@ -33,36 +33,14 @@
             {
                 this.AddScores(result);
             }
+            else if(char.TryParse(scores, out char charResult))
+            {
+                this.AddScores(charResult);
+            }
             else
             {
-                // zastosowałem instrukcję switch tutaj gdyż po podaniu litery nie wykonuje się metoda AddScores która ma w parametrze typ char. Zamiast tego poniżej jest sprawdzanie wpisanej litery jako string. 
-                switch (scores)
-                {
-                    case "A":
-                    case "a":
-                        this.AddScores(100);
-                        break;
-                    case "B":
-                    case "b":
-                        this.AddScores(80);
-                        break;
-                    case "C":
-                    case "c":
-                        this.AddScores(60);
-                        break;
-                    case "D":
-                    case "d":
-                        this.AddScores(40);
-                        break;
-                    case "E":
-                    case "e":
-                        this.AddScores(20);
-                        break;
-                    default:
-                        throw new Exception("Podano złą literę");
-
-                }
-
+                throw new Exception("Podane dane nie są liczbą lub literą");
+ 
             }
         }
         public void AddScores(double scores)
