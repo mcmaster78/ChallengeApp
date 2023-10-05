@@ -1,6 +1,7 @@
-﻿namespace ChallengeApp
+﻿
+namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    internal class Supervisor : IEmployee
     {
         private List<float> scores = new List<float>();
 
@@ -41,7 +42,7 @@
         //   }
 
         //}
-        public Employee(string name, string surname, char sex)
+        public Supervisor(string name, string surname, char sex)
         {
             this.Name = name;
             this.Surname = name;
@@ -67,19 +68,88 @@
         }
         public void AddScores(string scores)
         {
-            if (float.TryParse(scores, out float result))
+            switch (scores)
             {
-                this.AddScores(result);
-            }
-            else if (char.TryParse(scores, out char charResult))
-            {
-                this.AddScores(charResult);
-            }
-            else
-            {
-                throw new Exception("Podane dane nie są liczbą lub literą");
+                case "6":
+                    this.AddScores(100);
+                    break;
+                case "6-":
+                case "-6":
+                    this.AddScores(95);
+                    break;
+                case "5":
+                    this.AddScores(80);
+                    break;
+                case "+5":
+                case "5+":
+                    this.AddScores(85);
+                    break;
+                case "-5":
+                case "5-":
+                    this.AddScores(75);
+                    break;
+                case "4":
+                    this.AddScores(60);
+                    break;
+                case "+4":
+                case "4+":
+                    this.AddScores(65);
+                    break;
+                case "-4":
+                case "4-":
+                    this.AddScores(55);
+                    break;
+                case "3":
+                    this.AddScores(40);
+                    break;
+                case "+3":
+                case "3+":
+                    this.AddScores(45);
+                    break;
+                case "-3":
+                case "3-":
+                    this.AddScores(35);
+                    break;
+                case "2":
+                    this.AddScores(20);
+                    break;
+                case "+2":
+                case "2+":
+                    this.AddScores(25);
+                    break;
+                case "-2":
+                case "2-":
+                    this.AddScores(15);
+                    break;
+                case "1":
+                    this.AddScores(0);
+                    break;
+                case "+1":
+                case "1+":
+                    this.AddScores(5);
+                    break;
+                case "-1":
+                case "1-":
+                    this.AddScores(0);
+                    break;
+                default:
+                    throw new Exception("Podane dane są spoza dostępnego zakresu");
+                    break;
 
             }
+            //if (float.TryParse(scores, out float result))
+            //{
+            //    this.AddScores(result);
+            //}
+            //else if (char.TryParse(scores, out char charResult))
+            //{
+            //    this.AddScores(charResult);
+            //}
+            //else
+            //{
+            //    throw new Exception("Podane dane nie są liczbą lub literą");
+
+            //}
         }
         public void AddScores(double scores)
         {
@@ -164,4 +234,3 @@
 
     }
 }
-

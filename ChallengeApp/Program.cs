@@ -1,14 +1,16 @@
 ﻿using ChallengeApp;
+using System.Text;
 
-var employee = new Employee("Marcin", "Stefański", 'M');
+var employee = new Supervisor("Marcin", "Stefański", 'M');
 
 Console.WriteLine("Witamy w programie XYZ do oceny pracowników");
 Console.WriteLine("===========================================");
+Console.WriteLine("Można używać znaków od 1 do 6 bez znaku, lub ze znakiem '+' / '-'. Wyjscie=q");
 Console.WriteLine("");
+Console.WriteLine("Podaj ocenę pracownika:");
 
 while (true)
 {
-    Console.WriteLine("Podaj ocenę pracownika:");
     var input = Console.ReadLine();
     if (input == "q" || input == "Q")
     {
@@ -22,6 +24,7 @@ while (true)
     {
         Console.WriteLine($"Wystąpił wyjatek: { e.Message}");
     }
+    Console.WriteLine("Podaj kolejną ocenę pracownika:");
 }
 var statistics = employee.GetStatistics();
 Console.WriteLine($"Average: {statistics.Average:N2}");
