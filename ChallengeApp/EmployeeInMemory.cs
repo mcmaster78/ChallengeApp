@@ -1,59 +1,15 @@
-﻿namespace ChallengeApp
+﻿
+namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    internal class EmployeeInMemory : EmployeeBase
     {
         private List<float> scores = new List<float>();
 
-        //   public string Name => throw new NotImplementedException();
-
-        //   public string Surname => throw new NotImplementedException();
-
-        //   public char Sex => throw new NotImplementedException();
-
-        //   public void AddScores(float scores)
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-        //   public void AddScores(string scores)
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-        //   public void AddScores(double scores)
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-        //   public void AddScores(int scores)
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-        //   public void AddScores(char scores)
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-        //   public Statistics GetStatistics()
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-        //}
-        public Employee(string name, string surname, char sex)
+        public EmployeeInMemory(string name, string surname, char sex) : base(name, surname, sex)
         {
-            this.Name = name;
-            this.Surname = name;
-            this.Sex = sex;
         }
-        public string Name { get; private set; }
 
-        public string Surname { get; private set; }
-
-        public char Sex { get; private set; }
-
-        public void AddScores(float scores)
+        public override void AddScores(float scores)
         {
             if (scores >= 0 && scores <= 100)
             {
@@ -62,10 +18,10 @@
             else
             {
                 throw new Exception("Podana liczba jest poza dostępnym zakresem (0-100)");
-                //Console.WriteLine("Podana liczba jest poza dostępnym zakresem (0-100)");
+
             }
         }
-        public void AddScores(string scores)
+        public override void AddScores(string scores)
         {
             if (float.TryParse(scores, out float result))
             {
@@ -80,24 +36,20 @@
                 throw new Exception("Podane dane nie są liczbą lub literą");
 
             }
+
         }
-        public void AddScores(double scores)
+
+        public override void AddScores(double scores)
         {
             this.AddScores((float)scores);
         }
-        public void AddScores(decimal scores)
+
+        public override void AddScores(int scores)
         {
             this.AddScores((float)scores);
         }
-        public void AddScores(byte scores)
-        {
-            this.AddScores((float)scores);
-        }
-        public void AddScores(int scores)
-        {
-            this.AddScores((float)scores);
-        }
-        public void AddScores(char scores)
+
+        public override void AddScores(char scores)
         {
             switch (scores)
             {
@@ -125,9 +77,10 @@
                     throw new Exception("Podano złą literę");
 
             }
+
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -160,8 +113,7 @@
                     break;
             }
             return statistics;
-        }
 
+        }
     }
 }
-

@@ -1,11 +1,11 @@
 ﻿using ChallengeApp;
 using System.Text;
 
-var employee = new Supervisor("Marcin", "Stefański", 'M');
+var employee = new EmployeeInFile("Marcin", "Stefański", 'M');
 
 Console.WriteLine("Witamy w programie XYZ do oceny pracowników");
 Console.WriteLine("===========================================");
-Console.WriteLine("Można używać znaków od 1 do 6 bez znaku, lub ze znakiem '+' / '-'. Wyjscie=q");
+//Console.WriteLine("Można używać znaków od 1 do 6 bez znaku, lub ze znakiem '+' / '-'. Wyjscie=q");
 Console.WriteLine("");
 Console.WriteLine("Podaj ocenę pracownika:");
 

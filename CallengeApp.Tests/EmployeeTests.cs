@@ -9,7 +9,7 @@ namespace CallengeApp.Tests
         [Test]
         public void TestGetStatisticsMaxA()
         { 
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("A");
             var result = employee.GetStatistics();
             
@@ -18,7 +18,7 @@ namespace CallengeApp.Tests
         [Test]
         public void TestGetStatisticsMinA()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("A");
             var result = employee.GetStatistics();
             
@@ -26,7 +26,7 @@ namespace CallengeApp.Tests
         }
         public void TestGetStatisticsMaxB()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("B");
             var result = employee.GetStatistics();
 
@@ -35,7 +35,7 @@ namespace CallengeApp.Tests
         [Test]
         public void TestGetStatisticsMinB()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("B");
             var result = employee.GetStatistics();
 
@@ -43,7 +43,7 @@ namespace CallengeApp.Tests
         }
         public void TestGetStatisticsMaxC()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("C");
             var result = employee.GetStatistics();
 
@@ -52,7 +52,7 @@ namespace CallengeApp.Tests
         [Test]
         public void TestGetStatisticsMinC()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("C");
             var result = employee.GetStatistics();
 
@@ -60,7 +60,7 @@ namespace CallengeApp.Tests
         }
         public void TestGetStatisticsMaxD()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("D");
             var result = employee.GetStatistics();
 
@@ -69,7 +69,7 @@ namespace CallengeApp.Tests
         [Test]
         public void TestGetStatisticsMinD()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("D");
             var result = employee.GetStatistics();
 
@@ -77,7 +77,7 @@ namespace CallengeApp.Tests
         }
         public void TestGetStatisticsMaxE()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("E");
             var result = employee.GetStatistics();
 
@@ -86,7 +86,7 @@ namespace CallengeApp.Tests
         [Test]
         public void TestGetStatisticsMinE()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores("E");
             var result = employee.GetStatistics();
 
@@ -96,7 +96,7 @@ namespace CallengeApp.Tests
         [Test]
         public void TestGetStatisticsAverage()
         {
-            var employee = new Employee("Miœ", "Korargol", 'M');
+            var employee = new EmployeeInFile("Miœ", "Korargol", 'M');
             employee.AddScores(50);
             employee.AddScores(50);
             employee.AddScores(50);
