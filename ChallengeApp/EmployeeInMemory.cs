@@ -3,17 +3,24 @@ namespace ChallengeApp
 {
     internal class EmployeeInMemory : EmployeeBase
     {
+        public override event ScoresAddedDelegate ScoresAdded;
+
         private List<float> scores = new List<float>();
 
         public EmployeeInMemory(string name, string surname, char sex) : base(name, surname, sex)
         {
         }
 
-        public override void AddScores(float scores)
+         public override void AddScores(float scores)
         {
             if (scores >= 0 && scores <= 100)
             {
                 this.scores.Add(scores);
+
+                if (ScoresAdded != null)
+                {
+                    ScoresAdded(this, new EventArgs());
+                }
             }
             else
             {

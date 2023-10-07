@@ -4,7 +4,10 @@ namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
+        public override event ScoresAddedDelegate ScoresAdded;
+
         private const string fileName = "scores.txt";
+
         public EmployeeInFile(string name, string surname, char sex) : base(name, surname, sex)
         {
         }
@@ -15,6 +18,11 @@ namespace ChallengeApp
             {
                 writer.WriteLine(scores);
             }
+            if (ScoresAdded != null)
+            {
+                ScoresAdded(this, new EventArgs());
+            }
+
         }
 
         public override void AddScores(string scores)
