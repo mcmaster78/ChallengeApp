@@ -1,8 +1,12 @@
 ﻿
+using static ChallengeApp.EmployeeBase;
 namespace ChallengeApp
 {
-    internal class Supervisor : IEmployee
+    public abstract class Supervisor : IEmployee
     {
+       // public delegate void ScoresAddedDelegate(object sender, EventArgs args);
+        public event ScoresAddedDelegate ScoresAdded;
+
         private List<float> scores = new List<float>();
 
         //   public string Name => throw new NotImplementedException();
@@ -200,34 +204,9 @@ namespace ChallengeApp
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
             foreach (var score in scores)
             {
-                statistics.Max = Math.Max(statistics.Max, score);
-                statistics.Min = Math.Min(statistics.Min, score);
-                statistics.Average += score;
-            }
-            statistics.Average = statistics.Average / this.scores.Count;
-
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
+                statistics.AddScores(score);
             }
             return statistics;
         }

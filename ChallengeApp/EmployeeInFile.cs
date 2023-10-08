@@ -84,7 +84,6 @@ namespace ChallengeApp
                 }
             }
         }
-
         public override Statistics GetStatistics()
         {
             var scoresFromFile = LoadScoresFromFile();
@@ -111,37 +110,13 @@ namespace ChallengeApp
         }
         private Statistics CalculateStatistics(List<float> scores)
         {
-            var result = new Statistics();
-            result.Average = 0;
-            result.Max = float.MinValue;
-            result.Min = float.MaxValue;
+            var statistics = new Statistics();
+
             foreach (var score in scores)
             {
-                result.Max = Math.Max(result.Max, score);
-                result.Min = Math.Min(result.Min, score);
-                result.Average += score;
+                statistics.AddScores(score);
             }
-            result.Average = result.Average / scores.Count;
-
-            switch (result.Average)
-            {
-                case var average when average >= 80:
-                    result.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    result.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    result.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    result.AverageLetter = 'D';
-                    break;
-                default:
-                    result.AverageLetter = 'E';
-                    break;
-            }
-            return result;
+            return statistics;
         }
      }
 }

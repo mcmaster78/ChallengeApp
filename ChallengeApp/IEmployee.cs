@@ -1,9 +1,12 @@
 ﻿
 
+using static ChallengeApp.EmployeeBase;
+
 namespace ChallengeApp
 {
         public interface IEmployee
         {
+            event ScoresAddedDelegate ScoresAdded;
             string Name { get; }
             string Surname { get; }
             char Sex { get; }

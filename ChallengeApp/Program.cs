@@ -1,7 +1,7 @@
 ﻿using ChallengeApp;
 using System.Text;
 
-var employee = new EmployeeInMemory("Marcin", "Stefański", 'M');
+var employee = new EmployeeInFile("Marcin", "Stefański", 'M');
 employee.ScoresAdded += EmployeeScoresAdded;
 
 void EmployeeScoresAdded(object sender, EventArgs args)
